@@ -1,0 +1,238 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Diagnóstico </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--Body
+  [formGroup]="frm" #form="ngForm"
+  -->
+
+  <div class="main">
+    <div class="container">
+      <form #form="ngForm" (ngSubmit)="salvar()">
+        <!--Febre-->
+        <section class="form-group">
+          <h3>Febre</h3>
+          <div class="form-check">
+            <input
+              id="febre"
+              class="form-check-input"
+              type="radio"
+              name="febre"
+              value="5"
+              formControlName="febre"
+              (change)="onRadioChange($event)"
+            />
+            <label class="form-check-label" for="febre"
+              >Febre aferida na triagem, acima de 38° C</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              id="febre"
+              class="form-check-input"
+              type="radio"
+              value="3"
+              name="febre"
+              formControlName="febre"
+              (change)="onRadioChange($event)"
+            />
+            <label class="form-check-label" for="febre"
+              >Febre somente relatada</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              id="febre"
+              class="form-check-input"
+              type="radio"
+              value="0"
+              name="febre"
+              formControlName="febre"
+              (change)="onRadioChange($event)"
+            />
+            <label class="form-check-label" for="febre"
+              >Ausência de febre</label
+            >
+          </div>
+          <div
+            *ngIf="febre.invalid && (febre.dirty || febre.touched)"
+            class="invalid-feedback"
+          >
+            <div class="atencao" *ngIf="febre.errors?.['required']">
+              Selecione pelo menos uma opção.
+            </div>
+          </div>
+        </section>
+
+        <!--Sintomas-->
+        <section class="form-group resposta" formGroupName="sintomas">
+          <h3>Sintomas</h3>
+          <ion-checkbox id="sintomas0" formControlName="sintomas0"
+            >Nenhum dos sintomas abaixo</ion-checkbox
+          >
+          <ion-checkbox id="sintomas1" formControlName="sintomas1"
+            >Mialgia</ion-checkbox
+          >
+          <ion-checkbox id="sintomas2" formControlName="sintomas2"
+            >Cefaleia</ion-checkbox
+          >
+          <ion-checkbox id="sintomas3" formControlName="sintomas3">
+            Tosse</ion-checkbox
+          >
+          <ion-checkbox id="sintomas4" formControlName="sintomas4">
+            Dor de garganta (excluindo infecção bacteriana)</ion-checkbox
+          >
+          <ion-checkbox id="sintomas5" formControlName="sintomas5"
+            >Saturação menor que 94%</ion-checkbox
+          >
+          <ion-checkbox id="sintomas6" formControlName="sintomas6"
+            >Diarréia</ion-checkbox
+          >
+          <ion-checkbox id="sintomas7" formControlName="sintomas7">
+            Vômito</ion-checkbox
+          >
+          <ion-checkbox id="sintomas8" formControlName="sintomas8"
+            >Perda de Olfato</ion-checkbox
+          >
+          <ion-checkbox id="sintomas9" formControlName="sintomas9"
+            >Perda de Paladar</ion-checkbox
+          >
+          <ion-checkbox id="sintomas10" formControlName="sintomas10"
+            >Lombalgia, associada a sintomas gripais</ion-checkbox
+          >
+          <ion-checkbox id="sintomas11" formControlName="sintomas11"
+            >Dor em membros inferiores, associada a sintomas
+            gripais</ion-checkbox
+          >
+
+          <div
+            class="atencao"
+            *ngIf="frm.controls['sintomas'].errors && frm.controls['sintomas'].errors?.['requireOneCheckboxToBeChecked'] &&
+                    frm.controls['sintomas'].invalid &&
+                    (frm.controls['sintomas'].dirty ||
+                      frm.controls['sintomas'].touched)"
+          >
+            <small>Marque no mínimo 01 (uma) opção</small>
+          </div>
+        </section>
+
+        <!--Epidemiológica-->
+        <section class="form-group">
+          <h3>História Epidemiológica</h3>
+          <p>Domiciliado com caso positivo - Atendimento e Isolamento</p>
+          <div class="radio-group form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="5"
+              name="epidemiologica"
+              formControlName="epidemiologica"
+              (change)="onRadioChange($event)"
+            />
+            <label for="">Contato com caso positivo</label>
+          </div>
+          <div class="radio-group form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="0"
+              name="epidemiologica"
+              formControlName="epidemiologica"
+              (change)="onRadioChange($event)"
+            />
+            <label for="">Não tem história de contato</label>
+          </div>
+          <div
+            *ngIf="
+              epidemiologica.invalid &&
+              (epidemiologica.dirty || epidemiologica.touched)
+            "
+            class="invalid-feedback"
+          >
+            <div class="atencao" *ngIf="epidemiologica.errors?.['required']">
+              Selecione pelo menos uma opção.
+            </div>
+          </div>
+        </section>
+
+        <!--Comorbidades-->
+        <section class="form-group resposta" formGroupName="comorbidades">
+          <h3>Comorbidades</h3>
+          <ion-checkbox id="comorbidades0" formControlName="comorbidades0"
+            >Nenhuma das comorbidades abaixo</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades1" formControlName="comorbidades1"
+            >Hipertensão descompensado</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades2" formControlName="comorbidades2">
+            Diabetes descompensado</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades3" formControlName="comorbidades3">
+            Insuficiência Cardíaca</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades4" formControlName="comorbidades4">
+            Obesidade (IMC > 30)</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades5" formControlName="comorbidades5">
+            Uso de Imunosupressor (incluindo corticoide crônico)</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades6" formControlName="comorbidades6"
+            >HIV com CD4 abaixo > 350</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades7" formControlName="comorbidades7">
+            Asplenia</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades8" formControlName="comorbidades8">
+            Transplantado</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades9" formControlName="comorbidades9">
+            Quimioterapia nos últimos 30 dias</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades10" formControlName="comorbidades10">
+            Outras doenças auto-imunes</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades11" formControlName="comorbidades11"
+            >Asma não controlada, com uso de medicação contínua</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades12" formControlName="comorbidades12"
+            >Doença renal crônica Grau III</ion-checkbox
+          >
+          <ion-checkbox id="comorbidades13" formControlName="comorbidades13"
+            >Outras pneumopatias graves</ion-checkbox
+          >
+
+          <div
+            class="atencao"
+            *ngIf="frm.controls['comorbidades'].errors && frm.controls['comorbidades'].errors?.['requireOneCheckboxToBeChecked'] &&
+                    frm.controls['comorbidades'].invalid &&
+                    (frm.controls['comorbidades'].dirty ||
+                      frm.controls['comorbidades'].touched)"
+          >
+            <small>Marque no mínimo 01 (uma) opção</small>
+          </div>
+        </section>
+
+        <!--Botões Form-->
+        <div class="btn-frm">
+          <ion-button mat-raised-button type="submit">
+            <ion-spinner diameter="36" *ngIf="disabled"></ion-spinner>
+            <span *ngIf="!disabled">Enviar</span>
+          </ion-button>
+          <ion-button mat-raised-button (click)="diagnosticoForm()">
+            Diagnóstico
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-explore-container name="Tab 2 page"></app-explore-container>
+</ion-content>

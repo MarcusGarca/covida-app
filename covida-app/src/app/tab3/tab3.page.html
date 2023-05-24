@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Dashboard </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 3</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--Body-->
+  <section class="dashboard">
+    <div class="container">
+      <div class="contagem-diagnostico">
+        <strong>Diagnósticos emitidos</strong> <span>{{ contagem }}</span>
+      </div>
+
+      <div class="contagem-diagnostico-pie">
+        <!--Febre-->
+        <div id="myChart">
+          <strong>Febre</strong>
+          <canvas
+            baseChart
+            [data]="barChartFebreData"
+            [labels]="barChartFebreLabels"
+            [type]="barChartFebreType"
+          >
+          </canvas>
+        </div>
+        <!--Epidemiologica-->
+        <div id="myChart">
+          <strong>História Epidemiológica</strong>
+          <canvas
+            baseChart
+            [data]="barChartEpidemiologicaData"
+            [labels]="barChartEpidemiologicaLabels"
+            [type]="barChartEpidemiologicaType"
+          >
+          </canvas>
+        </div>
+      </div>
+
+      <!--Sintomas-->
+      <div class="contagem-diagnostico-bar">
+        <div id="myChart">
+          <strong>História Epidemiológica</strong>
+          <canvas
+            baseChart
+            [data]="barChartSintomaData"
+            [labels]="barChartSintomaLabels"
+            [type]="barChartSintomaType"
+          >
+          </canvas>
+        </div>
+      </div>
+
+      <!--Comorbidades-->
+      <div class="contagem-diagnostico-bar">
+        <div id="myChart">
+          <strong>História Epidemiológica</strong>
+          <canvas
+            baseChart
+            [data]="barChartComorbidadesData"
+            [labels]="barChartComorbidadesLabels"
+            [type]="barChartComorbidadesType"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-explore-container name="Tab 3 page"></app-explore-container>
+</ion-content>

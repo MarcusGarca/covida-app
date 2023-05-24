@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  color: #2b054e;
+  font-weight: 600;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 50px;
+  margin-top: 60px;
+}
+.resposta {
+  display: flex;
+  flex-direction: column;
+}
+.btn-frm {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+.btn-frm ion-button {
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 110px;
+}
+.form-check {
+  display: flex;
+  margin: 10px 0;
+}
+.form-check label {
+  margin-left: 10px;
+}
+.form-check input {
+  cursor: pointer;
+}
+.atencao {
+  color: #a13e3e;
+}
+@media (max-width: 425px) {
+  .btn-frm {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
