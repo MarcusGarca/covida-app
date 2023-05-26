@@ -16,7 +16,7 @@
 
   <div class="main">
     <div class="container">
-      <form #form="ngForm" (ngSubmit)="salvar()">
+      <form [formGroup]="frm" #form="ngForm" (ngSubmit)="salvar()">
         <!--Febre-->
         <section class="form-group">
           <h3>Febre</h3>
@@ -222,13 +222,19 @@
 
         <!--Botões Form-->
         <div class="btn-frm">
-          <ion-button mat-raised-button type="submit">
+          <ion-button
+            mat-raised-button
+            type="submit"
+            [disabled]="!frm.valid || disabled"
+            (click)="validate()"
+          >
             <ion-spinner diameter="36" *ngIf="disabled"></ion-spinner>
             <span *ngIf="!disabled">Enviar</span>
           </ion-button>
           <ion-button
             mat-raised-button
             color="danger"
+            [disabled]="!disabledBtnDiagnostico"
             (click)="diagnosticoForm()"
           >
             Diagnóstico
