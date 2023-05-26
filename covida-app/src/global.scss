@@ -24,3 +24,32 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+ion-title{
+  text-align: center;
+}
+
+.snackbar-alerta {
+  color: #ffffff;
+  --mdc-snackbar-container-color: #de4654;
+  --mat-mdc-snack-bar-button-color: #ffffff;
+}
+
+.snackbar-atencao {
+  color: #ffffff;
+  --mdc-snackbar-container-color: #dab900;
+  --mat-mdc-snack-bar-button-color: #ffffff;
+}
+
+.snackbar-sucesso {
+  color: #ffffff;
+  --mdc-snackbar-container-color: #198754;
+  --mat-mdc-snack-bar-button-color: #ffffff;
+}
+
+.snackbar-erro {
+  color: #ffffff;
+  --mdc-snackbar-container-color: #7d2fc7;
+  --mat-mdc-snack-bar-button-color: #ffffff;
+}

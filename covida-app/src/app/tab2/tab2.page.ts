@@ -16,7 +16,7 @@ import { requireCheckboxesToBeCheckedValidator } from './require-checkbox';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  frm!: FormGroup;
+  public frm!: FormGroup;
   frmResposta!: Resposta;
   resposta!: Resposta;
   frmRespostaPost: any;
@@ -30,8 +30,7 @@ export class Tab2Page implements OnInit {
   ) {
     this.frmResposta = {} as Resposta;
     this.resposta = {} as Resposta;
-  }
-  ngOnInit(): void {
+
     this.frm = new FormGroup({
       febre: new FormControl('', [Validators.required]),
       epidemiologica: new FormControl('', [Validators.required]),
@@ -75,6 +74,7 @@ export class Tab2Page implements OnInit {
       ),
     });
   }
+  ngOnInit(): void {}
 
   get febre() {
     return this.frm.get('febre')!;

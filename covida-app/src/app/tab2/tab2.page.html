@@ -7,7 +7,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
   <!--Body
@@ -226,7 +226,11 @@
             <ion-spinner diameter="36" *ngIf="disabled"></ion-spinner>
             <span *ngIf="!disabled">Enviar</span>
           </ion-button>
-          <ion-button mat-raised-button (click)="diagnosticoForm()">
+          <ion-button
+            mat-raised-button
+            color="danger"
+            (click)="diagnosticoForm()"
+          >
             Diagnóstico
           </ion-button>
         </div>
