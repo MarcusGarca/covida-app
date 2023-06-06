@@ -11,6 +11,8 @@ import { RespostaService } from '../service/resposta.service';
   styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page implements OnInit {
+  carregaDados: boolean = false;
+
   id: any[] = [];
 
   //Febre
@@ -107,6 +109,7 @@ export class Tab3Page implements OnInit {
     this.respostaService.listRespostas().subscribe(
       (respostas) => {
         respostas.forEach((resp) => {
+          this.carregaDados = true;
           //Contagem
           this.id.push(resp.id);
           this.contagem = this.id.length;
